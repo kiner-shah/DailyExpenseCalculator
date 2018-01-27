@@ -10,6 +10,8 @@ This is a simple web application to calculate daily expenses.
 **Dependencies**:
 1. [FPDF](http://www.fpdf.org/): PHP class
 
+**Sample PDF**: `pdf-2018-01-27.pdf`
+
 **Future Work**:
 1. Storing daily expense in a XML file.
 2. Displaying monthly expense in a graph - includes exporting graph as a image followed by generation of separate PDF for monthly expenses.
