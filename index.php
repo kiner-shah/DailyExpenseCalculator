@@ -25,7 +25,7 @@
 				}
 				var targetURL = "pdf_generator.php?";
 				var targetData = "generatePDF=" + encodeURIComponent(jsonObj)+"&generatePDFData=" + encodeURIComponent(balancevar);
-				alert(targetData);
+				//alert(targetData);
 				var xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = function() {
 					if(this.readyState == 4 && this.status == 200) {
