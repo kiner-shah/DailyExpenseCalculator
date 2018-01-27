@@ -1,0 +1,84 @@
+.top-header {
+	background-color: black;
+	color: white;
+	font-style: italic;
+	font-family: sans-serif;
+}
+.top-header .inline-display {
+	display: inline-block;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+.entry-div {
+	padding-top: 10px;
+	text-align: center;
+}
+.entry-div input[type='text'] {
+	width: 150px;
+	height: 30px;
+	border: 1px solid gray;
+	font-size: 15px;
+	text-align: center;
+}
+.entry-div input[type='button'] {
+	width: 80px;
+	height: 30px;
+	color: white;
+	border: 1px solid;
+	border-radius: 4px;
+	box-shadow: 3px 3px gray;
+}
+.entry-div input[type='button']:hover {
+	cursor: pointer;
+	box-shadow: 1px 1px gray;
+}
+.balance-div {
+	padding-left: 10px;
+	font-family: sans-serif;
+	font-size: 25px;
+	border: 1px solid navy;
+	border-radius: 10px;
+	color: navy;
+	width: 300px;
+}
+.balance-div .inline-display {
+	display: inline-block;
+}
+.table-div {
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 16px;
+}
+tr td, tr th {
+	padding: 10px;
+}
+.table-div #table-one {
+	border: 1px solid black;
+}
+.table-div #table-one #table-one-body {
+	padding: 10px;
+	border: 1px solid;
+}
+.table-div #table-one #table-one-body .spent-row {
+	background-color: #ff8080;
+	color: darkred;
+}
+.table-div #table-one #table-one-body .earned-row {
+	background-color: #99ff99;
+	color: darkgreen;
+}
+.export-div {
+	text-align: center;
+}
+.export-div #generate-pdf {
+	width: 120px;
+	height: 30px;
+	color: white;
+	border: 1px solid;
+	border-radius: 4px;
+	box-shadow: 3px 3px gray;	
+}
+.export-div #generate-pdf:hover {
+	cursor: pointer;
+	box-shadow: 1px 1px gray;
+}
