@@ -12,6 +12,8 @@ This is a simple web application to calculate daily expenses.
 
 **Sample PDF**: `pdf-2018-01-27.pdf`
 
+**Sample XML**: `test.xml`
+
 **Future Work**:
 ~~1. Storing daily expense in a XML file.~~
 1. Displaying monthly expense in a graph - includes exporting graph as a image followed by generation of separate PDF for monthly expenses.
