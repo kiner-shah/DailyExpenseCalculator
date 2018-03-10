@@ -14,4 +14,4 @@ This is a simple web application to calculate daily expenses.
 
 **Future Work**:
 ~~1. Storing daily expense in a XML file.~~
-2. Displaying monthly expense in a graph - includes exporting graph as a image followed by generation of separate PDF for monthly expenses.
+1. Displaying monthly expense in a graph - includes exporting graph as a image followed by generation of separate PDF for monthly expenses.
