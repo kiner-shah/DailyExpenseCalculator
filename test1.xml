@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<months>
+  <month month_no="2">
+    <dailytotal date="2018-02-28">20</dailytotal>
+    <monthlytotal>20</monthlytotal>
+  </month>
+  <month month_no="3">
+    <dailytotal date="2018-03-10">10</dailytotal>
+    <monthlytotal>30</monthlytotal>
+  </month>
+</months>
