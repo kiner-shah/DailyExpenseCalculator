@@ -17,7 +17,7 @@
 	$pdf->SetFont('Arial', 'B', 12);
 	$pdf->Ln();
 	$pdf->Cell(100, 20, 'Date: '.$date, 0, 1, 'L', false);
-	
+
 
 	$tableObj = $_POST["generatePDF"];
 	$tableObj = explode(',', $tableObj);
@@ -51,14 +51,82 @@
 	ob_get_clean();
 	$pdf->Output('F', 'pdf-'.$date.".pdf", true);
 	ob_end_clean();
+
+	// Loading the XML file and updating data to it
+	// Thanks to Syscall: https://stackoverflow.com/a/49207346/4688321
+	// Question link: https://stackoverflow.com/questions/49207127/problems-in-generating-proper-xml-file-using-php
+	$doc = new DOMDocument("1.0", "UTF-8");
+	$doc->preserveWhiteSpace = false;
+	$doc->formatOutput = true;
+	$doc->load('test.xml');
+	$months_tags = $doc->getElementsByTagName('months'); /// <<< CHANGE
+	$months_tag = $months_tags[0]; /// <<< CHANGE
+	// if (!$doc->documentElement) {
+	// 	echo "NULL documentElement";
+	// }
+	$months = $doc->getElementsByTagName('month');
+	$cur_month = (int) date('m');
+	$cur_date = $date;
+	$found_month = false;
+	//echo "<p>Current date: ".$cur_date."</p>";
+	//echo "<p>Current month: ".$cur_month."</p>";
+	foreach($months as $month) {
+		//echo "<p>Month START</p>";
+		$month_no = (int) $month->getAttribute('month_no');
+		//echo "<p>Month: ".$month_no."</p>";
+		if($cur_month == $month_no) {
+			//echo "<p>Found month</p>";
+			$dailytotals = $month->getElementsByTagName('dailytotal');
+			$found_date = false;
+			// $oldDailyTotal = 0.0;
+			foreach($dailytotals as $d) {
+				$this_date = $d->getAttribute('date');
+				//echo "<p>Date: ".$this_date."</p>";
+				if($this_date === $cur_date) {
+					// echo "<p>Found date</p>";
+					// $oldDailyTotal = (float) $d->nodeValue;
+					$new_dailytotal = $doc->createElement('dailytotal', (float) $balanceObj);
+					$new_dailytotal->setAttribute('date', $date);
+					$d->parentNode->replaceChild($new_dailytotal, $d);	// (new node, old node)
+					$found_date = true;
+					break;
+				}
+			}
+			if($found_date == false) {	// entry on a new day
+				//echo "<p>Didn't found date</p>";
+				$newDailyTotal = $doc->createElement('dailytotal', (float) $balanceObj);
+				$newDailyTotal->setAttribute('date', $date);
+				$m = $month->getElementsByTagName('monthlytotal')->item(0);
+				$newBalance = ((float) $m->nodeValue) + ((float) $balanceObj);
+				$newMonthlyTotal = $doc->createElement('monthlytotal', (float) $newBalance);
+				$m->parentNode->replaceChild($newMonthlyTotal, $m);
+				$newDailyTotal = $month->appendChild($newDailyTotal);
+			}
+			else {						// entry on the same day
+				$m = $month->getElementsByTagName('monthlytotal')->item(0);
+				// $oldBalance = (float) $m->nodeValue;
+				// $newBalance = $oldBalance - $oldDailyTotal + $balanceObj;
+				$newBalance = ((float) $m->nodeValue) + ((float) $balanceObj);
+				$newMonthlyTotal = $doc->createElement('monthlytotal', (float) $newBalance);
+				$m->parentNode->replaceChild($newMonthlyTotal, $m);
+			}
+			$found_month = true;
+			break;
+		}
+	}
+	if($found_month == false) {
+		// echo "<p>Didn't found month</p>";
+		$newMonthElement = $doc->createElement('month');
+		$newMonthElement->setAttribute('month_no', $cur_month);
+		$newDailyTotalElement = $doc->createElement('dailytotal', (float) $balanceObj);
+		$newDailyTotalElement->setAttribute('date', $date);
+		$newMonthlyTotalElement = $doc->createElement('monthlytotal', (float) $balanceObj);
+		$newDailyTotalElement = $newMonthElement->appendChild($newDailyTotalElement);
+		$newMonthlyTotalElement = $newMonthElement->appendChild($newMonthlyTotalElement);
+		$newMonthElement = $doc->appendChild($newMonthElement);
+		$months_tag->appendChild($newMonthElement); /// <<< CHANGE
+	}
+	$test1 = $doc->saveXML();
+	$doc->save('test.xml');
+	echo json_encode(true);
 ?>
-<!--<script>
-/* // To check if AJAX is supported
-	if(window.XMLHttpRequest) {
-		alert("Hello");
-	}
-	else {
-		alert("yeay");
-	}
-*/
-</script>-->
