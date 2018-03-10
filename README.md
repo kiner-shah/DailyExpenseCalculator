@@ -4,6 +4,7 @@ This is a simple web application to calculate daily expenses.
 **Features**:
 1. Calculating daily expenses.
 2. Exporting daily entries to a PDF.
+3. Storing daily expenses in an XML file along with monthly total.
 
 **Languages**: HTML, CSS, JS, JQUERY, AJAX, PHP
 
