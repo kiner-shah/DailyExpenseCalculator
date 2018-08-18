@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<months>
+  <month month_no="2">
+    <dailytotal date="2018-02-03">30572</dailytotal>
+    <dailytotal date="2018-02-08">-109</dailytotal>
+    <dailytotal date="2018-02-10">-38</dailytotal>
+    <dailytotal date="2018-02-13">-40</dailytotal>
+    <dailytotal date="2018-02-15">-142</dailytotal>
+    <dailytotal date="2018-02-17">-36</dailytotal>
+    <dailytotal date="2018-02-19">-1396</dailytotal>
+    <dailytotal date="2018-02-21">-90</dailytotal>
+    <dailytotal date="2018-02-23">-74</dailytotal>
+    <dailytotal date="2018-03-28">-113</dailytotal>
+    <monthlytotal>28534</monthlytotal>
+  </month>
+  <month month_no="3">
+    <dailytotal date="2018-03-02">30488</dailytotal>
+    <dailytotal date="2018-03-05">-46</dailytotal>
+    <dailytotal date="2018-03-08">-84</dailytotal>
+    <dailytotal date="2018-03-10">34</dailytotal>
+    <monthlytotal>29619</monthlytotal>
+    <dailytotal date="2018-03-13">-67</dailytotal>
+    <dailytotal date="2018-03-14">-36</dailytotal>
+    <dailytotal date="2018-03-16">-174</dailytotal>
+    <dailytotal date="2018-03-20">-140</dailytotal>
+    <dailytotal date="2018-03-21">-36</dailytotal>
+    <dailytotal date="2018-03-23">-72</dailytotal>
+    <dailytotal date="2018-03-27">-146</dailytotal>
+    <dailytotal date="2018-03-30">-102</dailytotal>
+  </month>
+  <month month_no="4">
+    <dailytotal date="2018-04-07">32868</dailytotal>
+    <monthlytotal>32868</monthlytotal>
+  </month>
+</months>

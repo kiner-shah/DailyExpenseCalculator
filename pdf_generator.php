@@ -58,7 +58,7 @@
 	$doc = new DOMDocument("1.0", "UTF-8");
 	$doc->preserveWhiteSpace = false;
 	$doc->formatOutput = true;
-	$doc->load('test.xml');
+	$doc->load('test'.date('Y').'.xml');
 	$months_tags = $doc->getElementsByTagName('months'); /// <<< CHANGE
 	$months_tag = $months_tags[0]; /// <<< CHANGE
 	// if (!$doc->documentElement) {
@@ -127,6 +127,6 @@
 		$months_tag->appendChild($newMonthElement); /// <<< CHANGE
 	}
 	$test1 = $doc->saveXML();
-	$doc->save('test.xml');
+	$doc->save('test'.date('Y').'.xml');
 	echo json_encode(true);
 ?>

@@ -71,14 +71,54 @@ tr td, tr th {
 	text-align: center;
 }
 .export-div #generate-pdf {
+	width: max-content;
+	height: 30px;
+	color: white;
+	border: 1px solid;
+	border-radius: 4px;
+	box-shadow: 3px 3px gray;
+}
+.export-div #generate-pdf:hover {
+	cursor: pointer;
+	box-shadow: 1px 1px gray;
+}
+.export-div #monthly-report {
 	width: 120px;
 	height: 30px;
 	color: white;
 	border: 1px solid;
 	border-radius: 4px;
-	box-shadow: 3px 3px gray;	
+	box-shadow: 3px 3px gray;
 }
-.export-div #generate-pdf:hover {
+.export-div #monthly-report:hover {
 	cursor: pointer;
 	box-shadow: 1px 1px gray;
+}
+.click-generate-button-div input[type='button'] {
+	width: max-content;
+	height: 30px;
+	color: white;
+	border: 1px solid;
+	border-radius: 4px;
+	box-shadow: 3px 3px gray;
+}
+.click-generate-button-div input[type='button']:hover {
+	cursor: pointer;
+	box-shadow: 1px 1px gray;
+}
+.back-button-div input[type='button'] {
+	width: 80px;
+	height: 30px;
+	color: white;
+	border: 1px solid;
+	border-radius: 4px;
+	box-shadow: 3px 3px gray;
+}
+.back-button-div input[type='button']:hover {
+	cursor: pointer;
+	box-shadow: 1px 1px gray;
+}
+.click-generate-button-div, .canvas-graph-div, .back-button-div {
+	padding-top: 10px;
+	text-align: center;
 }

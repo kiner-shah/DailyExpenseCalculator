@@ -5,6 +5,8 @@ $(document).ready(function() {
 	$('#total-value').css('padding-right', '10px');
 	$('#table-one').hide();
 	$('#generate-pdf').hide();
+	$('#monthly-report').hide();
+	$('#overall-stats-div').hide();
 	$('#spent-button').click(function() {
 		var details_box = $('#details-box').val();
 		var cost_box = $('#cost-box').val();
@@ -34,6 +36,8 @@ $(document).ready(function() {
 						$('#table-one').show();
 						$('#generate-pdf').show();
 						$('#generate-pdf').css('background-color', 'navy');
+						$('#monthly-report').show();
+						$('#monthly-report').css('background-color', 'navy');
 					}
 					$('#table-one').append('<tr class="spent-row"><td>' + details_box + '</td><td>-' + cost_box + '</td></tr>');
 					total_balance = total_balance - parseFloat(cost_box);
@@ -77,6 +81,8 @@ $(document).ready(function() {
 						$('#table-one').show();
 						$('#generate-pdf').show();
 						$('#generate-pdf').css('background-color', 'navy');
+						$('#monthly-report').show();
+						$('#monthly-report').css('background-color', 'navy');
 					}
 					$('#table-one').append('<tr class="earned-row"><td>' + details_box + '</td><td>' + cost_box + '</td></tr>');
 					total_balance = total_balance + parseFloat(cost_box);
@@ -91,5 +97,13 @@ $(document).ready(function() {
 				}
 			}
 		}
+	});
+	$('#show-graph').click(function() {
+		$('#daily-entry-div').hide();
+		$('#overall-stats-div').show();
+	});
+	$('#back-button-to-entry-div').click(function() {
+		$('#daily-entry-div').show();
+		$('#overall-stats-div').hide();
 	});
 });
