@@ -48,9 +48,10 @@
 	}
 	$pdf->Ln();
 	$pdf->Cell(300, 50, "Balance: ".$balanceObj, 0, 0, 'L', false);
-	ob_get_clean();
-	$pdf->Output('F', 'pdf-'.$date.".pdf", true);
+	$url = 'pdf-'.$date.'.pdf';
+	$pdf->Output('F', $url, true);
 	ob_end_clean();
+	echo json_encode(['url' => $url]);
 
 	// Loading the XML file and updating data to it
 	// Thanks to Syscall: https://stackoverflow.com/a/49207346/4688321
@@ -143,5 +144,5 @@
 	}
 	$test1 = $doc->saveXML();
 	$doc->save('test'.date('Y').'.xml');
-	echo json_encode(true);
+	//echo json_encode(true);
 ?>
