@@ -30,7 +30,7 @@
 				var xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = function() {
 					if(this.readyState == 4 && this.status == 200) {
-						var responseJSONObj = eval(this.responseText);
+						/*var responseJSONObj = eval(this.responseText);
 						if(responseJSONObj == true) {
 							console.log("Successfully generated PDF");
 							<?php
@@ -44,7 +44,14 @@
 								$_SESSION = array();
 								session_destroy();
 							?>
-						}
+						}*/
+						var responseJSONObj = JSON.parse(this.responseText);
+						//window.open(responseJSONObj.url, '_blank');
+						var link = document.createElement('a');
+					    link.href = responseJSONObj.url;
+					    link.download = responseJSONObj.url;
+					    link.target = "_blank";
+					    link.click();
 					}
 				}
 				xmlhttp.open("POST", targetURL, true);
